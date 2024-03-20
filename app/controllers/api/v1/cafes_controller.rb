@@ -15,6 +15,7 @@ class Api::V1::CafesController < ApplicationController
     if @cafe.save
       render json: @cafe, status: :created
     else
+      render json: { error: @cafe.errors.messages }, status: :unprocessable_entity
     end
   end
 
